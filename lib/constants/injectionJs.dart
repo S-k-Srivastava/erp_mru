@@ -40,7 +40,7 @@ String homeInjectionJs = '''
 
             // document.getElementById("sidebar").style.display ="none";
             document.getElementsByClassName("sidebar-header")[0].remove();
-            // document.getElementsByClassName("page-content")[0].innerHTML = "<a href="attendance/myattendance.php">Helo</a>";
+            // document.getElementsByClassName("col-md-2")[0].innerHTML = "<a href='attendance/myattendance.php'>Visit W3Schools.com!</a>";
 
 
             //
