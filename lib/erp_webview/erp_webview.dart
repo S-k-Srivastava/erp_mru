@@ -1,7 +1,7 @@
 import 'dart:async';
-
-import 'package:erp_mru/autologin/autologin.dart';
 import 'package:erp_mru/constants/injectionJs.dart';
+import 'package:erp_mru/erp_webview/widgets/loading_card.dart';
+import 'package:erp_mru/erp_webview/widgets/webview_appbar.dart';
 import 'package:erp_mru/themes/values/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -40,40 +40,9 @@ class _ErpWebViewState extends State<ErpWebView> {
 
     return Scaffold(
       backgroundColor: HexColor(bg),
-      appBar: AppBar(
-        title: Text(
-          "Hey!",
-          style: TextStyle(
-            color: HexColor(accent),
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        leading: IconButton(
-          splashRadius: 20,
-          iconSize: 20,
-          onPressed: () {},
-          icon: Image.network(
-            "https://firebasestorage.googleapis.com/v0/b/erp-red.appspot.com/o/erpred.png?alt=media&token=d8656e78-0a75-4a15-ada6-2651665fd259",
-            height: 30,
-            color: HexColor(accent),
-          ),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              NavX(context).to(const AutoLogin(), NavXTransition.fade(), 200);
-            },
-            splashRadius: 18,
-            padding: EdgeInsets.zero,
-            icon: const Icon(
-              Icons.settings,
-              size: 20,
-            ),
-          ),
-          const SizedBox(
-            width: 5,
-          ),
-        ],
+      appBar: PreferredSize(
+        child: WebViewAppBar(),
+        preferredSize: Size.fromHeight(45),
       ),
       body: WillPopScope(
         onWillPop: () async {
@@ -94,30 +63,7 @@ class _ErpWebViewState extends State<ErpWebView> {
           onWebViewCreated: (WebViewController webViewController) async {
             showDialog(
               context: context,
-              builder: ((context) => Card(
-                    color: HexColor(bg),
-                    elevation: 20,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25)),
-                    child: SizedBox(
-                      width: 200,
-                      height: 100,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const CircularProgressIndicator(),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          Text(
-                            "Initiating autologin...",
-                            style: TextStyle(color: HexColor(accent)),
-                          ),
-                        ],
-                      ),
-                    ),
-                  )),
+              builder: ((context) => LoadingCard()),
             );
             controller = webViewController;
             Timer(const Duration(seconds: 2), () {
@@ -138,3 +84,6 @@ class _ErpWebViewState extends State<ErpWebView> {
     );
   }
 }
+
+//back
+//themeing

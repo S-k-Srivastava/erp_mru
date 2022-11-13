@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       home: isLoggedIn ? const ErpWebView() : const AutoLogin(),
       theme: lightTheme,
       darkTheme: darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.dark,
     );
   }
 }

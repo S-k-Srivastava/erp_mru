@@ -15,7 +15,18 @@ class AutoLogin extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Setup AutoLogin"),
+        title: const Text("Autologin"),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: HexColor(accent),
+          ),
+          iconSize: 20,
+          splashRadius: 20,
+          onPressed: () {
+            NavX(context).back();
+          },
+        ),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -23,10 +34,9 @@ class AutoLogin extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.network(
-                "https://firebasestorage.googleapis.com/v0/b/erp-red.appspot.com/o/erpred.png?alt=media&token=d8656e78-0a75-4a15-ada6-2651665fd259",
-                color: HexColor(accent),
-                height: 100,
+              Image.asset(
+                "images/mru_logo.png",
+                height: 80,
               ),
               const SizedBox(
                 height: 100,
@@ -46,14 +56,14 @@ class AutoLogin extends StatelessWidget {
                     labelStyle: TextStyle(color: HexColor(accent)),
                     disabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Colors.red)),
+                        borderSide: BorderSide(color: HexColor(accent))),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Colors.red)),
+                        borderSide: BorderSide(color: HexColor(accent))),
                     contentPadding: const EdgeInsets.all(10),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Colors.red)),
+                        borderSide: BorderSide(color: HexColor(accent))),
                     prefixIcon: Icon(
                       Icons.email,
                       color: HexColor(accent),
@@ -82,14 +92,14 @@ class AutoLogin extends StatelessWidget {
                     labelStyle: TextStyle(color: HexColor(accent)),
                     disabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Colors.red)),
+                        borderSide: BorderSide(color: HexColor(accent))),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Colors.red)),
+                        borderSide: BorderSide(color: HexColor(accent))),
                     contentPadding: const EdgeInsets.all(10),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Colors.red)),
+                        borderSide: BorderSide(color: HexColor(accent))),
                     prefixIcon: Icon(
                       Icons.password,
                       color: HexColor(accent),
@@ -105,6 +115,9 @@ class AutoLogin extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: HexColor(accent),
+                  ),
                   onPressed: () async {
                     if (useridController.text.isEmpty) {
                       return;
@@ -117,8 +130,8 @@ class AutoLogin extends StatelessWidget {
                           "userid", useridController.text.toString().trim());
                       sharedPref.setString(
                           "pwd", passwordController.text.toString().trim());
-                      NavX(context)
-                          .toEnd(const ErpWebView(), NavXTransition.fade(), 200);
+                      NavX(context).toEnd(
+                          const ErpWebView(), NavXTransition.fade(), 200);
                     }
                   },
                   child: const Text("Save Credentials"),
