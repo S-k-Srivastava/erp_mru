@@ -2,7 +2,6 @@ import 'package:erp_mru/autologin/autologin.dart';
 import 'package:erp_mru/themes/values/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:overlay_support/overlay_support.dart';
 import 'package:sk_utils/sk_utils.dart';
 
 class WebViewAppBar extends StatelessWidget {
@@ -14,9 +13,9 @@ class WebViewAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
-        "Welcome to Erp Black!",
+        "Welcome to Erp black!",
         style: TextStyle(
-          color: HexColor(accent),
+          color: HexColor(AccentColors.accent),
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -26,7 +25,7 @@ class WebViewAppBar extends StatelessWidget {
           padding: EdgeInsets.all(10),
           splashRadius: 20,
           elevation: 30,
-          color: HexColor(bg),
+          color: HexColor(AccentColors.bg),
           itemBuilder: (context) {
             return [
               PopupMenuItem<int>(
@@ -34,16 +33,7 @@ class WebViewAppBar extends StatelessWidget {
                 child: Text(
                   "Autologin",
                   style: TextStyle(
-                    color: HexColor(accent),
-                  ),
-                ),
-              ),
-              PopupMenuItem<int>(
-                value: 1,
-                child: Text(
-                  "Themes",
-                  style: TextStyle(
-                    color: HexColor(accent),
+                    color: HexColor(AccentColors.accent),
                   ),
                 ),
               ),
@@ -51,8 +41,6 @@ class WebViewAppBar extends StatelessWidget {
           },
           onSelected: (value) {
             if (value == 0) {
-              NavX(context).to(const AutoLogin(), NavXTransition.fade(), 200);
-            } else if (value == 1) {
               NavX(context).to(const AutoLogin(), NavXTransition.fade(), 200);
             }
           },

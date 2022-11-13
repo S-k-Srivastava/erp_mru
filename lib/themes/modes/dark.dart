@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 ThemeData darkTheme = ThemeData(
-  scaffoldBackgroundColor: HexColor(bg),
-  primaryColor: HexColor(accent),
+  scaffoldBackgroundColor: HexColor(AccentColors.bg),
+  primaryColor: HexColor(AccentColors.accent),
   primarySwatch: Colors.red,
   appBarTheme: AppBarTheme(
     elevation: 0,
-    backgroundColor: HexColor(bg),
+    backgroundColor: HexColor(AccentColors.bg),
     titleTextStyle: TextStyle(
-      color: HexColor(accent),
+      color: HexColor(AccentColors.accent),
       fontWeight: FontWeight.bold,
       fontSize: 20,
     ),
     actionsIconTheme: IconThemeData(
-      color: HexColor(accent),
+      color: HexColor(AccentColors.accent),
     ),
   ),
 );

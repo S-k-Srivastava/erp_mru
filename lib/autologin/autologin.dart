@@ -19,7 +19,7 @@ class AutoLogin extends StatelessWidget {
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios,
-            color: HexColor(accent),
+            color: HexColor(AccentColors.accent),
           ),
           iconSize: 20,
           splashRadius: 20,
@@ -45,28 +45,36 @@ class AutoLogin extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: TextFormField(
                   keyboardType: TextInputType.name,
-                  style: TextStyle(color: HexColor(accent)),
+                  style: TextStyle(color: HexColor(AccentColors.accent)),
                   controller: useridController,
                   decoration: InputDecoration(
                     isDense: true,
                     hintStyle: TextStyle(
-                      color: HexColor(accent),
+                      color: HexColor(AccentColors.accent),
                     ),
-                    helperStyle: TextStyle(color: HexColor(accent)),
-                    labelStyle: TextStyle(color: HexColor(accent)),
+                    helperStyle:
+                        TextStyle(color: HexColor(AccentColors.accent)),
+                    labelStyle: TextStyle(color: HexColor(AccentColors.accent)),
                     disabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: HexColor(accent))),
+                        borderSide:
+                            BorderSide(color: HexColor(AccentColors.accent))),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: HexColor(accent))),
+                        borderSide:
+                            BorderSide(color: HexColor(AccentColors.accent))),
                     contentPadding: const EdgeInsets.all(10),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide:
+                            BorderSide(color: HexColor(AccentColors.accent))),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: HexColor(accent))),
+                        borderSide:
+                            BorderSide(color: HexColor(AccentColors.accent))),
                     prefixIcon: Icon(
                       Icons.email,
-                      color: HexColor(accent),
+                      color: HexColor(AccentColors.accent),
                     ),
                     hintText: "e.g 22001001XXXXX",
                     labelText: "UserId",
@@ -82,27 +90,35 @@ class AutoLogin extends StatelessWidget {
                   obscureText: true,
                   keyboardType: TextInputType.name,
                   controller: passwordController,
-                  style: TextStyle(color: HexColor(accent)),
+                  style: TextStyle(color: HexColor(AccentColors.accent)),
                   decoration: InputDecoration(
                     isDense: true,
                     hintStyle: TextStyle(
-                      color: HexColor(accent),
+                      color: HexColor(AccentColors.accent),
                     ),
-                    helperStyle: TextStyle(color: HexColor(accent)),
-                    labelStyle: TextStyle(color: HexColor(accent)),
+                    helperStyle:
+                        TextStyle(color: HexColor(AccentColors.accent)),
+                    labelStyle: TextStyle(color: HexColor(AccentColors.accent)),
                     disabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: HexColor(accent))),
+                        borderSide:
+                            BorderSide(color: HexColor(AccentColors.accent))),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide:
+                            BorderSide(color: HexColor(AccentColors.accent))),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: HexColor(accent))),
+                        borderSide:
+                            BorderSide(color: HexColor(AccentColors.accent))),
                     contentPadding: const EdgeInsets.all(10),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: HexColor(accent))),
+                        borderSide:
+                            BorderSide(color: HexColor(AccentColors.accent))),
                     prefixIcon: Icon(
                       Icons.password,
-                      color: HexColor(accent),
+                      color: HexColor(AccentColors.accent),
                     ),
                     hintText: "e.g *********",
                     labelText: "Password",
@@ -116,7 +132,7 @@ class AutoLogin extends StatelessWidget {
                 padding: const EdgeInsets.all(20),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: HexColor(accent),
+                    backgroundColor: HexColor(AccentColors.accent),
                   ),
                   onPressed: () async {
                     if (useridController.text.isEmpty) {

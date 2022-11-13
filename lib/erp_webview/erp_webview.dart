@@ -5,6 +5,7 @@ import 'package:erp_mru/erp_webview/widgets/webview_appbar.dart';
 import 'package:erp_mru/themes/values/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:overlay_support/overlay_support.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sk_utils/sk_utils.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -26,6 +27,7 @@ class _ErpWebViewState extends State<ErpWebView> {
     var sharedPrefs = await SharedPreferences.getInstance();
     userId = sharedPrefs.getString("userid");
     pwd = sharedPrefs.getString("pwd");
+    toast("Developed by Sk & Gns");
   }
 
   @override
@@ -39,14 +41,14 @@ class _ErpWebViewState extends State<ErpWebView> {
     WebViewController? controller;
 
     return Scaffold(
-      backgroundColor: HexColor(bg),
+      backgroundColor: HexColor(AccentColors.bg),
       appBar: PreferredSize(
         child: WebViewAppBar(),
         preferredSize: Size.fromHeight(45),
       ),
       body: WillPopScope(
         onWillPop: () async {
-          if (currentUrl.contains("index.php")) {
+          if (currentUrl.contains("corecampus/student/student_index.php")) {
             return true;
           } else {
             controller!.goBack().then((value) => () {
@@ -57,7 +59,7 @@ class _ErpWebViewState extends State<ErpWebView> {
           }
         },
         child: WebView(
-          backgroundColor: HexColor(bg),
+          backgroundColor: HexColor(AccentColors.bg),
           initialUrl: "https://mrei.icloudems.com/corecampus/index.php",
           javascriptMode: JavascriptMode.unrestricted,
           onWebViewCreated: (WebViewController webViewController) async {

@@ -10,7 +10,7 @@ class LoadingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: HexColor(bg),
+      color: HexColor(AccentColors.bg),
       elevation: 20,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
       child: SizedBox(
@@ -21,14 +21,14 @@ class LoadingCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CircularProgressIndicator(
-              color: HexColor(accent),
+              color: HexColor(AccentColors.accent),
             ),
             const SizedBox(
               height: 15,
             ),
             Text(
               "Initiating autologin...",
-              style: TextStyle(color: HexColor(accent)),
+              style: TextStyle(color: HexColor(AccentColors.accent)),
             ),
           ],
         ),
